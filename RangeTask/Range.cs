@@ -1,6 +1,4 @@
-﻿using static System.Collections.Specialized.BitVector32;
-
-namespace RangeTask
+﻿namespace RangeTask
 {
     internal class Range
     {
@@ -24,7 +22,7 @@ namespace RangeTask
             return number >= From && number <= To;
         }
 
-        public Range GetIntersection(Range range)
+        public Range? GetIntersection(Range range)
         {
             if (range.To <= From || To <= range.From)
             {
@@ -41,51 +39,38 @@ namespace RangeTask
         {
             if (range.To < From || To < range.From)
             {
-                Range range1 = new(From, To);
-                Range range2 = new(range.From, range.To);
-
-                return new Range[2] { range1, range2 };
+                return new Range[] { new(From, To), new(range.From, range.To) };
             }
 
             double minFrom = Math.Min(From, range.From);
             double maxTo = Math.Max(To, range.To);
-            Range rangesUnion = new(minFrom, maxTo);
 
-            return new Range[1] { rangesUnion };
+            return new Range[] { new(minFrom, maxTo) };
         }
 
-        public Range[] GetDiffirence(Range range)
+        public Range[] GetDifference(Range range)
         {
-            if (range.To <= From || To <= range.From)
+            if (range.From > To || range.To < From)
             {
-                Range rangesDifference = new(From, To);
-
-                return new Range[1] { rangesDifference };
+                return new Range[] { new(From, To) };
             }
 
-            if ((range.From < To && range.From != From) && range.To >= To)
+            if (range.From <= From && To <= range.To)
             {
-                Range rangesDifference = new(From, range.From);
-
-                return new Range[1] { rangesDifference };
+                return new Range[] { };
             }
 
-            if (range.From <= From && (range.To > From && range.To != To))
+            if (From < range.From && To > range.To)
             {
-                Range rangesDifference = new(range.To, To);
-
-                return new Range[1] { rangesDifference };
+                return new Range[] { new(From, range.From), new(range.To, To) };
             }
 
-            if ((range.From > From && range.From < To) && (range.To > From && range.To < To))
+            if (To <= range.To)
             {
-                Range rangesDifference1 = new(From, range.From);
-                Range rangesDifference2 = new(range.To, To);
-
-                return new Range[2] { rangesDifference1, rangesDifference2 };
+                return new Range[] { new(From, range.From) };
             }
 
-            return null;
+            return new Range[] { new(range.To, To) };
         }
     }
 }

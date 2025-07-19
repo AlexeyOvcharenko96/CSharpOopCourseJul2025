@@ -4,9 +4,13 @@
     {
         public static void Main()
         {
-            Console.WriteLine("Введите начало и конец диапазона:");
+            Console.WriteLine("Введите начало первого диапазона:");
+            double rangeStart1 = Convert.ToDouble(Console.ReadLine());
 
-            Range range1 = new(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
+            Console.WriteLine("Введите конец первого диапазона:");
+            double rangeEnd1 = Convert.ToDouble(Console.ReadLine());
+
+            Range range1 = new(rangeStart1, rangeEnd1);
 
             Console.WriteLine("Длина диапазона = " + range1.GetLength());
 
@@ -22,10 +26,14 @@
                 Console.WriteLine("Число не принадлежит диапазону!");
             }
 
-            Console.WriteLine("Введите начало и конец второго диапазона:");
+            Console.WriteLine("Введите начало второго диапазона:");
+            double rangeStart2 = Convert.ToDouble(Console.ReadLine());
 
-            Range range2 = new(Convert.ToDouble(Console.ReadLine()), Convert.ToDouble(Console.ReadLine()));
-            Range intersection = range1.GetIntersection(range2);
+            Console.WriteLine("Введите конец второго диапазона:");
+            double rangeEnd2 = Convert.ToDouble(Console.ReadLine());
+
+            Range range2 = new(rangeStart2, rangeEnd2);
+            Range? intersection = range1.GetIntersection(range2);
 
             Console.WriteLine("Проверка пересечения:");
 
@@ -38,40 +46,27 @@
                 Console.WriteLine("Пересечения нет");
             }
 
-            Range[][] unionsArray = { range1.GetUnion(range2) };
+            Range[] union = range1.GetUnion(range2);
 
             Console.WriteLine("Проверка объединения:");
 
-            foreach (Range[] testRangesArray in unionsArray)
+            foreach (Range rangesArray in union)
             {
-                if (testRangesArray.Length == 2)
-                {
-                    Console.WriteLine($"{testRangesArray[0].From}, {testRangesArray[0].To} и {testRangesArray[1].From}, {testRangesArray[1].To}");
-                }
-                else
-                {
-                    Console.WriteLine($"{testRangesArray[0].From}, {testRangesArray[0].To}");
-                }
+                Console.WriteLine($"{rangesArray.From}, {rangesArray.To}");
             }
 
-            Range[][] differencesArray = { range1.GetDiffirence(range2) };
+            Range[] difference = range1.GetDifference(range2);
 
             Console.WriteLine("Проверка разности:");
 
-            foreach (Range[] testRangesArray in differencesArray)
+            foreach (Range rangesArray in difference)
             {
-                if (testRangesArray is null)
-                {
-                    Console.WriteLine("Диапазон отсутствует");
-                }
-                else if (testRangesArray.Length == 2)
-                {
-                    Console.WriteLine($"{testRangesArray[0].From}, {testRangesArray[0].To} и {testRangesArray[1].From}, {testRangesArray[1].To}");
-                }
-                else
-                {
-                    Console.WriteLine($"{testRangesArray[0].From}, {testRangesArray[0].To}");
-                }
+                Console.WriteLine($"{rangesArray.From}, {rangesArray.To}");
+            }
+
+            if (difference.Length == 0)
+            {
+                Console.WriteLine("Диапазон отсутствует");
             }
         }
     }
