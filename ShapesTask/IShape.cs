@@ -157,7 +157,7 @@
 
         public double GetArea()
         {
-            return Math.Abs(X1*(Y2 - Y3) + X2*(Y3 - Y1) + X3*(Y1 - Y2)) / 2;
+            return Math.Abs(X1 * (Y2 - Y3) + X2 * (Y3 - Y1) + X3 * (Y1 - Y2)) / 2;
         }
 
         public double GetPerimeter()
@@ -167,6 +167,118 @@
             double sideC = Math.Sqrt(Math.Pow(X1 - X3, 2) + Math.Pow(Y1 - Y3, 2));
 
             return sideA + sideB + sideC;
+        }
+    }
+
+    public class Rectangle : IShape
+    {
+        public double Width { get; set; }
+        public double Height { get; set; }
+
+        public override string ToString()
+        {
+            return $"Прямоугольник с длинами сторон {Width} и {Height}";
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)(Width + Height);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (ReferenceEquals(obj, this))
+            {
+                return true;
+            }
+            if (ReferenceEquals(obj, null) || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            Rectangle rectangle = (Rectangle)obj;
+            return Width == rectangle.Width && Height == rectangle.Height;
+        }
+
+        public Rectangle(double width, double height)
+        {
+            Width = width;
+            Height = height;
+        }
+
+        public double GetWidth()
+        {
+            return Width;
+        }
+
+        public double GetHeight()
+        {
+            return Height;
+        }
+
+        public double GetArea()
+        {
+            return Width * Height;
+        }
+
+        public double GetPerimeter()
+        {
+            return Width * 2 + Height * 2;
+        }
+    }
+
+    public class Circle : IShape
+    {
+        public double Radius { get; set; }
+
+        public override string ToString()
+        {
+            return $"Окружность с радиусом {Radius}";
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)Radius;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (ReferenceEquals(obj, this))
+            {
+                return true;
+            }
+            if (ReferenceEquals(obj, null) || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            Circle circle = (Circle)obj;
+            return Radius == circle.Radius;
+        }
+
+        public Circle(double radius)
+        {
+            Radius = radius;
+        }
+
+        public double GetWidth()
+        {
+            return Radius * 2;
+        }
+
+        public double GetHeight()
+        {
+            return Radius * 2;
+        }
+
+        public double GetArea()
+        {
+            return Math.PI * Radius * Radius;
+        }
+
+        public double GetPerimeter()
+        {
+            return 2 * Math.PI * Radius;
         }
     }
 }
