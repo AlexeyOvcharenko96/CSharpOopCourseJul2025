@@ -5,12 +5,12 @@
         public static void Main()
         {
             Console.WriteLine("Введите начало первого диапазона:");
-            double rangeStart1 = Convert.ToDouble(Console.ReadLine());
+            double rangeFrom1 = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Введите конец первого диапазона:");
-            double rangeEnd1 = Convert.ToDouble(Console.ReadLine());
+            double rangeTo1 = Convert.ToDouble(Console.ReadLine());
 
-            Range range1 = new(rangeStart1, rangeEnd1);
+            Range range1 = new(rangeFrom1, rangeTo1);
 
             Console.WriteLine("Длина диапазона = " + range1.GetLength());
 
@@ -27,12 +27,12 @@
             }
 
             Console.WriteLine("Введите начало второго диапазона:");
-            double rangeStart2 = Convert.ToDouble(Console.ReadLine());
+            double rangeFrom2 = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Введите конец второго диапазона:");
-            double rangeEnd2 = Convert.ToDouble(Console.ReadLine());
+            double rangeTo2 = Convert.ToDouble(Console.ReadLine());
 
-            Range range2 = new(rangeStart2, rangeEnd2);
+            Range range2 = new(rangeFrom2, rangeTo2);
             Range? intersection = range1.GetIntersection(range2);
 
             Console.WriteLine("Проверка пересечения:");
@@ -50,23 +50,25 @@
 
             Console.WriteLine("Проверка объединения:");
 
-            foreach (Range rangesArray in union)
+            foreach (Range range in union)
             {
-                Console.WriteLine($"{rangesArray.From}, {rangesArray.To}");
+                Console.WriteLine($"{range.From}, {range.To}");
             }
 
             Range[] difference = range1.GetDifference(range2);
 
             Console.WriteLine("Проверка разности:");
 
-            foreach (Range rangesArray in difference)
-            {
-                Console.WriteLine($"{rangesArray.From}, {rangesArray.To}");
-            }
-
             if (difference.Length == 0)
             {
-                Console.WriteLine("Диапазон отсутствует");
+                Console.WriteLine("Пустой результат");
+            }
+            else
+            {
+                foreach (Range range in difference)
+                {
+                    Console.WriteLine($"{range.From}, {range.To}");
+                }
             }
         }
     }
