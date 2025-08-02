@@ -1,44 +1,45 @@
-﻿namespace ShapesTask;
+﻿namespace ShapesTask.Shapes;
 
-public class Square : IShape
+public class Circle : IShape
 {
-    public double SideLength { get; set; }
+    public double Radius { get; set; }
 
-    public Square(double sideLength)
+    public Circle(double radius)
     {
-        SideLength = sideLength;
+        Radius = radius;
     }
 
     public double GetWidth()
     {
-        return SideLength;
+        return Radius * 2;
     }
 
     public double GetHeight()
     {
-        return SideLength;
+        return Radius * 2;
     }
 
     public double GetArea()
     {
-        return SideLength * SideLength;
+        return Math.PI * Radius * Radius;
     }
 
     public double GetPerimeter()
     {
-        return SideLength * 4;
+        return 2 * Math.PI * Radius;
     }
 
     public override string ToString()
     {
-        return $"Квадрат с длиной стороны {SideLength}";
+        return $"Окружность с радиусом {Radius}";
     }
 
     public override int GetHashCode()
     {
-        int prime = 25;
+        const int prime = 17;
+
         int hash = 1;
-        hash = prime * hash + SideLength.GetHashCode();
+        hash = prime * hash + Radius.GetHashCode();
 
         return hash;
     }
@@ -55,7 +56,7 @@ public class Square : IShape
             return false;
         }
 
-        Square square = (Square)obj;
-        return SideLength == square.SideLength;
+        Circle circle = (Circle)obj;
+        return Radius == circle.Radius;
     }
 }

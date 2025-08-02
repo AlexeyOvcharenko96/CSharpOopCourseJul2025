@@ -1,4 +1,7 @@
-﻿namespace ShapesTask;
+﻿using ShapesTask.Shapes;
+using ShapesTask.Comparators;
+
+namespace ShapesTask;
 
 internal class ShapesTask
 {
@@ -6,29 +9,29 @@ internal class ShapesTask
     {
         Array.Sort(shapesArray, new ShapeAreaComparer());
 
-        return shapesArray[0];
+        return shapesArray[^1];
     }
 
     public static IShape GetSecondMaxPerimeterShape(IShape[] shapesArray)
     {
         Array.Sort(shapesArray, new ShapePerimeterComparer());
 
-        return shapesArray[1];
+        return shapesArray[^2];
     }
 
     static void Main(string[] args)
     {
         IShape[] shapesArray =
         {
-                new Square(5),
-                new Square(6.5),
-                new Rectangle(3, 5),
-                new Rectangle(4, 6),
-                new Circle(7.5),
-                new Circle(5),
-                new Triangle(1, 1, 10, 1, 5, 12),
-                new Triangle(2, 5, 4, 4, 7, 9)
-            };
+            new Square(5),
+            new Square(6.5),
+            new Rectangle(3, 5),
+            new Rectangle(4, 6),
+            new Circle(7.5),
+            new Circle(5),
+            new Triangle(1, 1, 10, 1, 5, 12),
+            new Triangle(2, 5, 4, 4, 7, 9)
+        };
 
         IShape maxAreaShape = GetMaxAreaShape(shapesArray);
 

@@ -1,4 +1,4 @@
-﻿namespace ShapesTask;
+﻿namespace ShapesTask.Shapes;
 
 public class Rectangle : IShape
 {
@@ -39,7 +39,8 @@ public class Rectangle : IShape
 
     public override int GetHashCode()
     {
-        int prime = 25;
+        const int prime = 17;
+
         int hash = 1;
         hash = prime * hash + Width.GetHashCode();
         hash = prime * hash + Height.GetHashCode();
@@ -63,4 +64,3 @@ public class Rectangle : IShape
         return Width == rectangle.Width && Height == rectangle.Height;
     }
 }
-

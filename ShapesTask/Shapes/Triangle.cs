@@ -1,4 +1,4 @@
-﻿namespace ShapesTask;
+﻿namespace ShapesTask.Shapes;
 
 public class Triangle : IShape
 {
@@ -45,14 +45,14 @@ public class Triangle : IShape
         return Math.Abs((X2 - X1) * (Y3 - Y1) - (X3 - X1) * (Y2 - Y1)) / 2;
     }
 
-    private double GetSideLength(double x2, double x1, double y2, double y1)
+    private static double GetSideLength(double x1, double y1, double x2, double y2)
     {
         return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
     }
 
     public double GetPerimeter()
     {
-        return GetSideLength(X2, X1, Y2, Y1) + GetSideLength(X3, X2, Y3, Y2) + GetSideLength(X1, X3, Y1, Y3);
+        return GetSideLength(X1, Y1, X2, Y2) + GetSideLength(X3, Y3, X2, Y2) + GetSideLength(X1, Y1, X3, Y3);
     }
 
     public override string ToString()
@@ -62,7 +62,8 @@ public class Triangle : IShape
 
     public override int GetHashCode()
     {
-        int prime = 25;
+        int prime = 17;
+
         int hash = 1;
         hash = prime * hash + X1.GetHashCode();
         hash = prime * hash + Y1.GetHashCode();
