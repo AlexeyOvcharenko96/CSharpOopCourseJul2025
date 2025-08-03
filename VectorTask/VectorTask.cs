@@ -10,53 +10,54 @@
 
             Vector vector1 = new Vector(array1);
             Vector vector2 = new Vector(array2);
-            Vector vector3 = new Vector(5,array3);
+            Vector vector3 = new Vector(5, array3);
             Vector vector4 = new Vector(array3);
             Vector vector5 = new Vector(vector3);
 
             Console.WriteLine("Проверка нестатических методов");
             Console.WriteLine();
 
-            Console.WriteLine(vector1 + " Размерность = " + vector1.GetSize());
-            Console.WriteLine(vector2 + " Размерность = " + vector2.GetSize());
-            Console.WriteLine(vector3 + " Размерность = " + vector3.GetSize());
-            Console.WriteLine(vector4 + " Размерность = " + vector4.GetSize());
-            Console.WriteLine(vector5 + " Размерность = " + vector5.GetSize());
+            Console.WriteLine(vector1 + ", Размерность = " + vector1.GetSize);
+            Console.WriteLine(vector2 + ", Размерность = " + vector2.GetSize);
+            Console.WriteLine(vector3 + ", Размерность = " + vector3.GetSize);
+            Console.WriteLine(vector4 + ", Размерность = " + vector4.GetSize);
+            Console.WriteLine(vector5 + ", Размерность = " + vector5.GetSize);
             Console.WriteLine();
 
-            Console.WriteLine("К вектору 3 прибавить вектор 2:");
-            vector3.AddVector(vector2);
-            Console.WriteLine("Результат:" + vector3);
+            Console.WriteLine("К вектору 3 прибавить вектор 2");
+            vector3.Add(vector2);
+            Console.WriteLine("Результат: " + vector3);
             Console.WriteLine();
 
-            Console.WriteLine("От вектора 3 отнять вектор 2:");
-            vector3.SubtractVector(vector2);
-            Console.WriteLine("Результат:" + vector3);
+            Console.WriteLine("От вектора 3 отнять вектор 2");
+            vector3.Subtract(vector2);
+            Console.WriteLine("Результат: " + vector3);
             Console.WriteLine();
 
             Console.WriteLine("Умножение вектора 3 на скаляр 4");
-            vector3.MultiplyVectorByScalar(4);
-            Console.WriteLine("Результат:" + vector3);
+            vector3.MultiplyByScalar(4);
+            Console.WriteLine("Результат: " + vector3);
             Console.WriteLine();
 
             Console.WriteLine("Разворот вектора 3");
-            vector3.GetReverse();
-            Console.WriteLine("Результат:" + vector3);
+            vector3.Reverse();
+            Console.WriteLine("Результат: " + vector3);
             Console.WriteLine();
 
             Console.WriteLine("Получение длины вектора 3: " + vector3.GetLength());
             Console.WriteLine();
 
-            Console.WriteLine("Вектор 3:" + vector3);
-            Console.WriteLine("Получение компоненты вектора 3 по индексу 2: " + vector3[2]);
+            Console.WriteLine("Вектор 3: " + vector3);
+            Console.WriteLine("Получение компоненты вектора 3 по индексу 2" + vector3[2]);
             Console.WriteLine();
 
-            Console.WriteLine("Установка компоненты вектора 3 по индексу 2: ");
+            Console.WriteLine("Установка компоненты вектора 3 по индексу 2");
             vector3[2] = 25;
-            Console.WriteLine("Результат:" + vector3);
+            Console.WriteLine("Результат: " + vector3);
             Console.WriteLine();
 
-            Console.WriteLine("Проверка метода Equals:");
+            Console.WriteLine("Проверка метода Equals");
+
             if (vector1.Equals(vector3))
             {
                 Console.WriteLine("Векторы 1 и 3 равны");
@@ -86,7 +87,8 @@
 
             Console.WriteLine();
 
-            Console.WriteLine("Проверка метода Хеш-функции:");
+            Console.WriteLine("Проверка метода Хеш-функции");
+
             if (vector1.GetHashCode() == vector5.GetHashCode())
             {
                 Console.WriteLine("Хешкоды векторов 1 и 5 равны");
@@ -111,7 +113,7 @@
 
             Console.WriteLine(vector1);
             Console.WriteLine(vector3);
-            Console.WriteLine("Скалярное произведение векторов 1 и 3: " + Vector.GetScalarMultiplication(vector1, vector3));
+            Console.WriteLine("Скалярное произведение векторов 1 и 3: " + Vector.GetScalarProduct(vector1, vector3));
             Console.WriteLine();
 
             Console.WriteLine(vector1);
