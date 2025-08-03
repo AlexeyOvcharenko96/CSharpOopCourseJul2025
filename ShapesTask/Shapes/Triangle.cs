@@ -27,7 +27,7 @@ public class Triangle : IShape
     public double GetWidth()
     {
         double maxX = Math.Max(X1, Math.Max(X2, X3));
-        double minX = Math.Min(X1, Math.Max(X2, X3));
+        double minX = Math.Min(X1, Math.Min(X2, X3));
 
         return maxX - minX;
     }
@@ -35,7 +35,7 @@ public class Triangle : IShape
     public double GetHeight()
     {
         double maxY = Math.Max(Y1, Math.Max(Y2, Y3));
-        double minY = Math.Min(Y1, Math.Max(Y2, Y3));
+        double minY = Math.Min(Y1, Math.Min(Y2, Y3));
 
         return maxY - minY;
     }
