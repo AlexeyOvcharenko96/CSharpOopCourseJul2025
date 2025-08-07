@@ -4,10 +4,8 @@ public class Vector
 {
     private double[] _components;
 
-    public int Size
-    {
-        get { return _components.Length; }
-    }
+    public int Size => _components.Length;
+
 
     public Vector(int size)
     {
@@ -58,8 +56,8 @@ public class Vector
 
     public double this[int index]
     {
-        get { return _components[index]; }
-        set { _components[index] = value; }
+        get => _components[index];
+        set => _components[index] = value;
     }
 
     public void Add(Vector vector)
@@ -176,7 +174,6 @@ public class Vector
     {
         const int prime = 17;
         int hash = 1;
-        hash = prime * hash + _components.Length;
 
         foreach (double component in _components)
         {
