@@ -217,6 +217,11 @@ public class Matrix
 
     public Matrix MultiplyByRowVector(Vector row)
     {
+        if (ColumnsCount != 1)
+        {
+            throw new ArgumentException($"Количество столбцов матрицы должно быть = 1, Количество столбцов: {ColumnsCount}");
+        }
+
         if (row.Size != RowsCount)
         {
             throw new ArgumentException($"Размер вектора-строки должен совпадать с количеством строк матрицы. Количество строк: {RowsCount}, размер вектора: {row.Size}", nameof(row));
