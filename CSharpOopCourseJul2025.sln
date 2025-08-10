@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorTask", "VectorTask\Ve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixTask", "MatrixTask\MatrixTask.csproj", "{AE9B99C7-096C-4F4D-ADEA-B9BFCB5DCEB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayListHomeTask", "ArrayListHome\ArrayListHomeTask.csproj", "{FABDB5C5-F2CD-4AA8-96E3-C7F1D6CCCBCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{AE9B99C7-096C-4F4D-ADEA-B9BFCB5DCEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE9B99C7-096C-4F4D-ADEA-B9BFCB5DCEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE9B99C7-096C-4F4D-ADEA-B9BFCB5DCEB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FABDB5C5-F2CD-4AA8-96E3-C7F1D6CCCBCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FABDB5C5-F2CD-4AA8-96E3-C7F1D6CCCBCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FABDB5C5-F2CD-4AA8-96E3-C7F1D6CCCBCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FABDB5C5-F2CD-4AA8-96E3-C7F1D6CCCBCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
