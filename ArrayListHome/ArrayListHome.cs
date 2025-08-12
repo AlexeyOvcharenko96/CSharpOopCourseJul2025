@@ -48,7 +48,7 @@ public class ArrayListHome
 
     public static List<int> GetNumbersWithoutDuplicates(List<int> list)
     {
-        List<int> numbersWithoutDuplicates = new List<int>(list.Count);
+        List<int> numbersWithoutDuplicates = new List<int>(list.Capacity);
 
         foreach (int number in list)
         {
