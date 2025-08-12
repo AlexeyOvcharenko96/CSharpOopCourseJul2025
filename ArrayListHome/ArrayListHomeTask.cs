@@ -8,7 +8,7 @@ public class ArrayListHomeTask
         Console.WriteLine(string.Join(", ", ArrayListHome.ReadFileLines("..\\..\\..\\input.txt")));
         Console.WriteLine();
 
-        List<int> numbers = new List<int> { 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 16, 16};
+        List<int> numbers = new List<int> { 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15, 16, 16 };
 
         Console.WriteLine("Проверка второго пункта задачи:");
         Console.WriteLine("Список до удалений: " + string.Join(", ", numbers));
